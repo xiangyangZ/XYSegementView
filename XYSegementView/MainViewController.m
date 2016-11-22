@@ -39,8 +39,9 @@
 {
     NSArray *titleArray = @[@"一页",@"两页",@"三页",@"四页"];
     _titleView = [[XYTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40) TitleArray:titleArray];
+    __weak typeof(self) weakSelf = self;
     _titleView.titleClickBlock = ^(NSInteger index){
-        
+        [weakSelf.collectionView setContentOffset:CGPointMake(index*kScreenWidth, 0)];
     };
     [self.view addSubview:_titleView];
 }
