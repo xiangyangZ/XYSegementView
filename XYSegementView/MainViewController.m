@@ -61,6 +61,9 @@
     _collectionView.pagingEnabled = YES;
     _collectionView.showsHorizontalScrollIndicator = NO;
     _collectionView.contentSize = CGSizeMake(kScreenWidth * 4, kScreenHeight-40-64);
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0) {
+        [_collectionView setPrefetchingEnabled:YES];
+    }
     [_collectionView registerClass:[FirstCollectionViewCell class] forCellWithReuseIdentifier:@"cellOne"];
     [_collectionView registerClass:[SecondCollectionViewCell class] forCellWithReuseIdentifier:@"cellTwo"];
     [_collectionView registerClass:[ThirdCollectionViewCell class] forCellWithReuseIdentifier:@"cellThree"];
